@@ -169,3 +169,15 @@ obj.show(); // Output: Child class method.
 //     }
 // }
 // let math = new MathOperations();
+//-----------------------------------------
+//MAXIMUM Call stack exceeded error
+// when we create a class and inside constractor when we set the value of the class itself then using a setvalue method if we try to set the same value again then it will create a infinite loop and we get the error of maximum call stack exceeded. 
+// example of this error
+// class Person {
+//     constructor(name) {
+//         this.name = name;
+//     }
+//     setName(name) {
+//         this.name = name; // This will cause a maximum call stack size exceeded error
+//     }
+// }
