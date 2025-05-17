@@ -49,7 +49,7 @@ person4.greet(); // Hello, my name is Jane
 // pillars of OOPs :-
 // _______________________________________
 //1. Encapsulation: Bundling data and methods that operate on that data within a single unit (class).
-//example of Encapsulation
+//example of Encapsulation // focus on data security 
 class PersonEncapsulation {
     constructor(name, age) {
         this.name = name;
@@ -66,7 +66,7 @@ let personEncap = new PersonEncapsulation("John", 30);
 console.log(personEncap.getName()); // John
 // ----------------------------------------------------------------
 //2. Abstraction: Hiding the complex implementation details and showing only the essential features of the object.
-//example of Abstraction
+//example of Abstraction 
 class Employee {
     #salary; // Private field
     constructor(name, salary) {
@@ -90,6 +90,44 @@ emp1.setSalary(6000); // Salary updated to: 6000
 console.log(emp1.getSalary()); // 6000
 // console.log(emp1.#salary); // SyntaxError: Private field '#salary' must be declared in an enclosing class
 // ----------------------------------------------------------------
+// Step 1: Define the abstraction
+// interface PaymentProcessor {
+//     pay(amount: number): void;
+//   }
+  
+//   // Step 2: Concrete implementations
+//   class PayPal implements PaymentProcessor {
+//     pay(amount: number): void {
+//       console.log(`Paid ₹${amount} using PayPal`);
+//     }
+//   }
+  
+//   class Stripe implements PaymentProcessor {
+//     pay(amount: number): void {
+//       console.log(`Paid ₹${amount} using Stripe`);
+//     }
+//   }
+  
+//   // Step 3: A function that uses abstraction
+//   class Checkout {
+//     constructor(private processor: PaymentProcessor) {}
+  
+//     processPayment(amount: number): void {
+//       this.processor.pay(amount);
+//     }
+//   }
+  
+//   // Usage
+//   const paypal = new PayPal();
+//   const stripe = new Stripe();
+  
+//   const checkout1 = new Checkout(paypal);
+//   checkout1.processPayment(1000); // Paid ₹1000 using PayPal
+  
+//   const checkout2 = new Checkout(stripe);
+//   checkout2.processPayment(1500); // Paid ₹1500 using Stripe
+  
+//-----------------------------------------------------------------
 //3. Inheritance: Mechanism where a new class can inherit properties and methods from an existing class. It allows for code reusability and the creation of hierarchical relationships between classes.
 //example of Inheritance
 class Vehicle {
@@ -181,3 +219,11 @@ obj.show(); // Output: Child class method.
 //         this.name = name; // This will cause a maximum call stack size exceeded error
 //     }
 // }
+
+// Access Modifier in TS
+// | Modifier    | Meaning                                                            |
+// | ----------- | ------------------------------------------------------------------ |
+// | `public`    | Accessible from **anywhere** (default if no modifier is specified) |
+// | `private`   | Accessible **only within the class**                               |
+// | `protected` | Accessible **within the class and its subclasses**                 |
+// | `readonly`  | Cannot be reassigned after initialization                          |
