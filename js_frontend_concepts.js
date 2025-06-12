@@ -63,38 +63,40 @@ document.addEventListener("DOMContentLoaded", () => {
 
 //****************objects and arrays*****************
 
-// const abj = {
-//     "1":"a",
-//     "1":"b",
-// }
-// console.log(abj);
+const abj = {
+    "1":"a",
+    "1":"b",
+}
+console.log(abj);
 
-// const key1 = Symbol("1");
-// const key2 = Symbol(1);     
-// const obj = {
-//     [key1]: "a",
-//     [key2]: "b",
-// };
-// console.log(obj);
+const key1 = Symbol("1");
+const key2 = Symbol(1);     
+const obj = {
+    [key1]: "a",
+    [key2]: "b",
+};
+console.log(obj);
 
 // *******************call(), apply(), bind()********************
 const details = {
     firstName: "Soumyajit",
     surname: "Bag",
     age: 23,
-    description : function(state,pinCode) {
-        return this.firstName + " " + this.surname + " from " + state + " " + (pinCode ? pinCode : "");
+    description : function(state,pin) {
+        return this.firstName + " " + this.surname + " from " + state +" "+ pin;
     },
 };
-
 console.log(details.description());
 const castomDetails = {
     firstName: "Arbajit",
     surname: "Sen",
 };
-
-console.log(details.description.call(castomDetails,"West Bengal"));
-console.log(details.description.apply(castomDetails,["West Bengal"]));
+//function borrowing
+//call method
+console.log(details.description.call(castomDetails,"West Bengal",722152));
+//apply method
+console.log(details.description.apply(castomDetails,["West Bengal",722152]));
+//bind method return copy of same function and use it / invoke later
 const Usersdescription = details.description.bind({
     firstName: "Papai",
     surname: "Bag",
@@ -107,9 +109,10 @@ Function.prototype.myBind = function(...args){
     let fnc = this
     // console.log(fnc);
     return function(...args2){
-        return fnc.apply(args[0], [ ...args.slice(1), ...args2])
+        return fnc.apply(args[0], [ ...args.slice(1), ...args2]) //When you use the rest parameter syntax (...args), JavaScript automatically gathers the remaining arguments into a real array.
     }
 }
+
 const detail = {
     firstName: "Papai",
     surname: "Bag",
@@ -131,3 +134,58 @@ const multiplyByThree =  multiply.bind(this,3)
 multiplyByTwo(3) // 9
 
 multiply.bind(this,4)(2) // 8 ,,  multiply by 4
+
+// ********************Prototype********************
+// In JavaScript, a prototype is an object that is associated with every function and object by default. It provides a mechanism through which objects can inherit properties and methods from other objects.
+
+// ********************Prototype Inheritance********************
+const o1 = {
+     p : "inside o1"
+}
+const o2 = {
+     p2 : "inside o2",
+     __proto__:o1
+}
+const o3 = {
+     p3 : "inside o3",
+     __proto__:o2
+}
+
+console.log(o3.p);  //but we should never change the __proto__ it's ok for understanding
+
+// ********************Prototype vs __proto__********************
+class Student{
+    constructor(){
+    }
+    getName(){
+        return 'inside getname : I am soumyajit'
+    }
+}
+const ob1 = new Student()
+
+const ob2 = {__proto__ : Student.prototype}
+console.log(ob2.getName());
+
+// obj.__proto__ is a reference to the object's prototype ([[Prototype]]), mostly used for inspection.
+// ConstructorFn.prototype is the object that will become the prototype of instances created using new ConstructorFn().
+
+// ********************localStorage and sessionStorage********************
+
+// Both localStorage and sessionStorage are part of the Web Storage API that allow storing key-value pairs in the browser.
+// ┌──────────────────────┬──────────────────────────────┬──────────────────────────────┐
+// │ Feature              │ localStorage                 │ sessionStorage               │
+// ├──────────────────────┼──────────────────────────────┼──────────────────────────────┤
+// │ Lifetime             │ Persists even after tab or   │ Cleared when tab or browser  │
+// │                      │ browser is closed            │ is closed                    │
+// ├──────────────────────┼──────────────────────────────┼──────────────────────────────┤
+// │ Scope                │ Shared across tabs/windows   │ Specific to a single tab     │
+// │                      │ of the same origin           │                              │
+// ├──────────────────────┼──────────────────────────────┼──────────────────────────────┤
+// │ Storage Capacity     │ ~5–10 MB                     │ ~5 MB                        │
+// ├──────────────────────┼──────────────────────────────┼──────────────────────────────┤
+// │ Access Methods       │ setItem(), getItem(),        │ setItem(), getItem(),        │
+// │                      │ removeItem(), clear()        │ removeItem(), clear()        │
+// ├──────────────────────┼──────────────────────────────┼──────────────────────────────┤
+// │ Use Case             │ Storing data that should     │ Temporary data like form     │
+// │                      │ persist across sessions      │ inputs, filters, etc.        │
+// └──────────────────────┴──────────────────────────────┴──────────────────────────────┘
