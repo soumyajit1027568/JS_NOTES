@@ -7,6 +7,8 @@ let person = {
     }
 };
 console.log(person.name); // John
+// An object literal in JavaScript is a syntax for defining an object using curly braces {} with zero or more key-value pairs. It is the most common way to define structured data in JavaScript and supports methods, nested objects, and shorthand syntax.
+
 // ----------------------------------
 //constructor function
 function Person(name, age) {
@@ -40,6 +42,7 @@ let person3 = new PersonClass("John", 30);
 PersonClass.staticMethod(); // This is a static method.
 // -------------------------------------
 //prototype
+// In JavaScript, a prototype is an object that is associated with every function and object by default. It provides a mechanism through which objects can inherit properties and methods from other objects.
 PersonClass.prototype.greet = function() {
     console.log("Hello, my name is " + this.name);
 };
