@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("grandparent").addEventListener('click', (e) => { 
         console.log("Grandparent Clicked!"); 
-    },true) // false for capturing
+    },true) // false for capturing, befault bubling false
 
     document.getElementById("parent").addEventListener('click', (e) => { 
         console.log("Parent Clicked!"); 
