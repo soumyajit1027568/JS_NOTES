@@ -3,23 +3,27 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class Solution {
-    public boolean isPalindrome(int x) {
-        if (x < 0) return false;
-        int original = x, reversed = 0;
-        while (x != 0) {
-            int digit = x % 10;
-            if (reversed > (Integer.MAX_VALUE - digit) / 10) return false; // overflow check
-            reversed = reversed * 10 + digit;
-            x /= 10;
+    //for only print
+    public void sum(int num,int multiply) {
+        if(num == 1){
+            System.out.println(multiply);
+            return;
         }
-        return original == reversed;
+        sum(num-1, multiply*num);
+    }
+    
+    //if want some return value
+    public int returnSum(int n){
+        if(n == 0){
+            return 1;
+        }
+        return n * returnSum(n-1);
     }
 
     public static void main(String[] args) {
         Solution sol = new Solution();
-        int testNumber = 121;
-        System.out.println(sol.isPalindrome(testNumber)); // Output: true
-        Arrays.sort(args);
-        Collections.sort(null);
+        int testNumber = 4;
+        sol.sum(testNumber,1);
+        System.out.println(sol.returnSum(4));
     }
 }
