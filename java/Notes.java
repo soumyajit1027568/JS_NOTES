@@ -12,7 +12,6 @@ class Notes {
             String str1 = new StringBuilder(str).reverse().toString(); 
             //strigBuilder returns StringBuilder object thats why using .toString and the sotore in a String variable
             System.out.println(str1);
-
         // Convert to a char array
             char[] myArray = str.toCharArray();
         //num travarse every digit
@@ -25,6 +24,13 @@ class Notes {
             Math.sqrt(n);
         //n^(3)
             Math.pow(n,3);
-        
+        //swap array
+            List<Integer> ArrList = new ArrayList<Integer>();
+            ArrList.add(10);
+            ArrList.add(15);
+            ArrList.add(20);
+            ArrList.add(25);
+            Collections.swap(ArrList,0,ArrList.size());
+        //
     }
 }

@@ -1,20 +1,20 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+package recursion;
 
-public class Solution {
+import java.util.*;
+public class takeNotTakePattern {
    
+    // print all subsets of an array 
     public void f(int i,List<Integer> arr,List<Integer> eArr){
         if(i >= arr.size()){
+            // print all subsets of an array where the sum of elements in the subset is equal to 3
             int sum = 0;
             for (int j =0;j<eArr.size();j++) {
                 sum = sum + eArr.get(j);
             }
-            if(sum == 3){
+            if(sum == 3){  // if we want to print all subsets, we can just remove this if condition and the above for loop
                 System.out.println(eArr);
             }
+            
             return;
         }
         //take -> arr.get(i)
@@ -25,7 +25,7 @@ public class Solution {
         f(i+1,arr,eArr);
     }
     public static void main(String[] args) {
-        Solution sol = new Solution();
+        takeNotTakePattern sol = new takeNotTakePattern();
         // int arr[] = {1,2,3};
         List<Integer> ArrList = new ArrayList<Integer>();
         List<Integer> eArrList = new ArrayList<Integer>();
