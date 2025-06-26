@@ -63,17 +63,15 @@ public class TakeNotTakePattern {
     }
 
     //count the subsequence with sum =3
-    public int countOfSubsequenceWithSum(int i,List<Integer> arr,List<Integer> emptyArray,int sum){
+    public int countOfSubsequenceWithSum(int i,List<Integer> arr,int sum){
         if(i >= arr.size()){
             if(sum == 3){
                 return 1;
             }
             return 0;
         }
-        emptyArray.add(arr.get(i));
-        int l =  countOfSubsequenceWithSum(i+1, arr, emptyArray, sum + arr.get(i));
-        emptyArray.remove(arr.get(i));
-        int r = countOfSubsequenceWithSum(i+1, arr, emptyArray, sum);
+        int l =  countOfSubsequenceWithSum(i+1, arr, sum + arr.get(i));
+        int r = countOfSubsequenceWithSum(i+1, arr, sum);
         return l+r;
     }
     // subsequence when sum = sum
@@ -94,7 +92,7 @@ public class TakeNotTakePattern {
         System.err.println("-------------------");
         sol.anySubsequenceWithSum(0,ArrList,eArrList,0);
         System.err.println("-------------------");
-        System.err.println(sol.countOfSubsequenceWithSum(0,ArrList,eArrList,0));
+        System.err.println(sol.countOfSubsequenceWithSum(0,ArrList,0));
         
     }
 }
