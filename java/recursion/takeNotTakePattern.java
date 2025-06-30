@@ -84,8 +84,8 @@ public class TakeNotTakePattern {
         List<Integer> ArrList = new ArrayList<Integer>();
         List<Integer> eArrList = new ArrayList<Integer>();
         ArrList.add(1);
-        ArrList.add(3);
         ArrList.add(2);
+        ArrList.add(5);
         sol.f(0,ArrList,eArrList);
         System.err.println("-------------------");
         sol.subsequenceWithSum(0,ArrList,eArrList,0);

@@ -1,4 +1,3 @@
-package recursion;
 import java.util.*;
 public class Recursion {
     //sum of n number for only print

@@ -1,11 +1,6 @@
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-public class Solution {
-    public void combinationSumF(List<List<Integer>> combinationArr, List<Integer> temp, int[] arr, int low, int target) {
+import java.util.*;
+public class combinationSumI {
+ public void combinationSumF(List<List<Integer>> combinationArr, List<Integer> temp, int[] arr, int low, int target) {
         if (target == 0) {
             combinationArr.add(new ArrayList<>(temp)); // Add a copy of temp
             return;
@@ -29,13 +24,13 @@ public class Solution {
     }
 
     public static void main(String[] args) {
-        Solution sol = new Solution();
-        int arr[] = {2};
+        combinationSumI sol = new combinationSumI();
+        int arr[] = {1,4,2,3,2};
         List<Integer> ArrList = new ArrayList<Integer>();
         List<Integer> eArrList = new ArrayList<Integer>();
         ArrList.add(1);
         ArrList.add(3);
         ArrList.add(2);
-        System.err.println(sol.combinationSum(arr,1));
+        System.err.println(sol.combinationSum(arr,4));
     }
 }
