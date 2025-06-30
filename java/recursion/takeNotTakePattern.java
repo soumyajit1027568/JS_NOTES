@@ -38,7 +38,7 @@ public class TakeNotTakePattern {
         }
         emptyArray.add(arr.get(i));
         subsequenceWithSum(i+1, arr, emptyArray,sum+arr.get(i));
-        emptyArray.remove(arr.get(i));
+        emptyArray.remove(emptyArray.size() - 1);
         subsequenceWithSum(i+1, arr, emptyArray, sum);
     }
 
@@ -55,7 +55,7 @@ public class TakeNotTakePattern {
         if(anySubsequenceWithSum(i+1, arr, emptyArray, sum + arr.get(i))){
             return true;
         }
-        emptyArray.remove(i);
+        emptyArray.remove(emptyArray.size() - 1);
         if(anySubsequenceWithSum(i+1, arr, emptyArray, sum)){
             return true;
         }
@@ -85,7 +85,10 @@ public class TakeNotTakePattern {
         List<Integer> eArrList = new ArrayList<Integer>();
         ArrList.add(1);
         ArrList.add(2);
-        ArrList.add(5);
+        ArrList.add(2);
+        ArrList.add(1);
+        ArrList.add(2);
+        ArrList.add(2);
         sol.f(0,ArrList,eArrList);
         System.err.println("-------------------");
         sol.subsequenceWithSum(0,ArrList,eArrList,0);
