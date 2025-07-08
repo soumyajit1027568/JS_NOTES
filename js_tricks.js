@@ -61,5 +61,18 @@ function mergeArr(arr1=[],arr2=[]){
 }
 console.log(mergeArr(arr1,arr2));
 
+//Create an array of a given size/Fixed size
+const size = 5;
+const arr = Array.from({ length: size });
+//Also fill all index with 0 using .fill()
+console.log(arr.fill(0));
+
+//Render given size stars using a loop ★★★★★ 
+Array.from({ length: size }).forEach((_, i) =>       
+    console.log("★")
+);
+
+
+
 
 
