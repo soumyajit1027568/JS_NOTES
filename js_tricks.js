@@ -33,5 +33,33 @@ function toggle(mode){
 }
 console.log(toggle(true))
 
+//map function in js 
+// Input:
+// arr1 = [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }]
+// arr2 = [{ id: 2, age: 30 }, { id: 3, name: "Charlie" }]
+
+// Output:
+// [
+// { id: 1, name: "Alice" },
+// { id: 2, name: "Bob", age: 30},
+// { id: 3, name: "Charlie" }
+// ]
+let arr1 = [{ id: 1, name: "Alice" }, { id: 2, name: "Bob" }]
+let arr2 = [{ id: 2, age: 30 }, { id: 3, name: "Charlie" }]
+
+function mergeArr(arr1=[],arr2=[]){
+    const map = new Map();
+    [...arr1,...arr2].map((e)=>{
+        if(map.has(e.id)){
+            map.set(e.id,{...map.get(e.id),...e})
+        }else{
+            map.set(e.id,{...e})
+        }
+    })
+
+    return [...map.values()]
+}
+console.log(mergeArr(arr1,arr2));
+
 
 
